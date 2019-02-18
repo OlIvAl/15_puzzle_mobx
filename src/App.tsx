@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { inject } from 'mobx-react';
+import DevTools from 'mobx-react-devtools';
+import {IGameStore, ITilesState} from './stores/GameStore/interface';
+import Game from './Game';
 
-class App extends Component {
+export interface IAppProps {
+  tiles: ITilesState;
+}
+
+// ToDo: fix it!!!
+class App extends Component<any> {
   render() {
+    const {
+      tiles = [],
+    } = this.props;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <>
+        <Game
+          tiles={tiles}
+        />
+        { process.env.NODE_ENV !== 'production' ? <DevTools /> : null }
+      </>
     );
   }
 }
 
-export default App;
+export default inject(({
+  gameStore: {
+    tiles
+  }
+}: {gameStore: IGameStore}): IAppProps => ({ tiles }))(App);

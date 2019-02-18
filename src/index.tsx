@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import * as mobx from 'mobx';
+import { Provider } from 'mobx-react';
+import GameStore from './stores/GameStore';
+import {IGameStore} from './stores/GameStore/interface';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+mobx.configure({ enforceActions: 'observed' });
+
+if (process.env.NODE_ENV !== 'production') {
+  (window as any).__STORE__ = GameStore; // For Debug
+}
+
+const gameStore: IGameStore = new GameStore();
+
+ReactDOM.render(
+  <Provider
+    gameStore={gameStore}
+  >
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
