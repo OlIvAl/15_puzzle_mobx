@@ -4,7 +4,7 @@ import DevTools from 'mobx-react-devtools';
 import {IGameStore} from './stores/GameStore/interface';
 import Game from './Game';
 
-export interface IAppProps extends Pick<IGameStore, 'tiles' | 'counter' | 'keypressMove' | 'initNewGame'>{
+export interface IAppProps extends Pick<IGameStore, 'tiles' | 'counter' | 'keypressMove' | 'initNewGame' | 'modal' | 'closeModal'>{
 
 }
 
@@ -13,7 +13,9 @@ const App: React.FC<any> = ({
   tiles = [],
   counter = 0,
   keypressMove,
-  initNewGame
+  initNewGame,
+  modal,
+  closeModal
 }): JSX.Element => (
   <>
     <Game
@@ -21,6 +23,8 @@ const App: React.FC<any> = ({
       counter={counter}
       keypressMove={keypressMove}
       initNewGame={initNewGame}
+      modal={modal}
+      closeModal={closeModal}
     />
     {
       process.env.NODE_ENV !== 'production'
@@ -35,11 +39,15 @@ export default inject(({
     tiles,
     counter,
     keypressMove,
-    initNewGame
+    initNewGame,
+    modal,
+    closeModal
   }
 }: {gameStore: IGameStore}): IAppProps => ({
   tiles,
   counter,
   keypressMove,
-  initNewGame
+  initNewGame,
+  modal,
+  closeModal
 }))(App);

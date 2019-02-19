@@ -4,6 +4,7 @@ import StoreHelpers from './helpers';
 import {BOARD_TILE_SIZE} from '../../constants/config';
 import TileModel from './TileModel';
 import HoleModel from './HoleModel';
+import {WIN_MODAL} from '../../constants/modals';
 
 export default class GameStore implements IGameStore {
   @observable tiles: ITilesState = [];
@@ -11,6 +12,7 @@ export default class GameStore implements IGameStore {
   @observable hole: IHoleModel = new HoleModel(this, BOARD_TILE_SIZE - 1, BOARD_TILE_SIZE - 1);
 
   @observable counter: number = 0;
+  @observable modal: string = '';
 
   constructor() {
     this.initNewGame();
@@ -70,6 +72,7 @@ export default class GameStore implements IGameStore {
       this.hole.changePosition(newHoleRow, newHoleCol);
 
       this.incrementCounter();
+      this.checkWin();
     }
   }
 
@@ -89,5 +92,22 @@ export default class GameStore implements IGameStore {
   @action.bound
   incrementCounter(): void {
     this.counter = this.counter + 1;
+  }
+
+  @action.bound
+  checkWin(): void {
+    if(StoreHelpers.checkWinGame(this.tiles)) {
+      this.openModal(WIN_MODAL);
+    }
+  }
+
+  @action.bound
+  openModal(modalName: string): void {
+    this.modal = modalName;
+  }
+
+  @action.bound
+  closeModal(): void {
+    this.modal = '';
   }
 }

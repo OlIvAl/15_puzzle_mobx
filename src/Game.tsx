@@ -11,6 +11,8 @@ import BottomConsole from './components/BottomConsole';
 import {IAppProps} from './App';
 import {ITileModel} from './stores/GameStore/interface';
 import {observer} from 'mobx-react';
+import {WIN_MODAL} from './constants/modals';
+import Modal from './components/Modal';
 
 class Game extends React.Component<IAppProps> {
   constructor(props: IAppProps) {
@@ -35,7 +37,9 @@ class Game extends React.Component<IAppProps> {
     const {
       tiles,
       counter,
-      initNewGame
+      initNewGame,
+      modal,
+      closeModal
     } = this.props;
 
     return (
@@ -66,6 +70,16 @@ class Game extends React.Component<IAppProps> {
             Undo
           </Button>*/}
         </BottomConsole>
+
+        {modal === WIN_MODAL
+          ? <Modal
+            onClose={closeModal}
+          >
+            <strong>Count: </strong>{counter}<br/>
+            <strong>Time: </strong>{0}
+          </Modal>
+          : null
+        }
       </Wrapper>
     );
   }

@@ -11,10 +11,12 @@ class StoreHelpers {
 
     return a;
   }
+
   static checkMovableTile (tile: ITileModel, hole: IHoleModel): boolean {
     return (Math.abs(hole.col - tile.col) === 1) && (hole.row === tile.row)
     || (Math.abs(hole.row - tile.row) === 1) && (hole.col === tile.col)
   };
+
   static getActiveTileForKeypress (code: string, tiles: ITileModel[], hole: IHoleModel): ITileModel | undefined {
     if ((code === 'ArrowUp') && ((hole.row + 1) < BOARD_TILE_SIZE)) {
       return tiles.find((tile: ITileModel): boolean => (
@@ -39,4 +41,10 @@ class StoreHelpers {
 
     return undefined;
   };
+
+  static checkWinGame(tiles: ITileModel[]): boolean {
+    return tiles.every(({title, row, col}: ITileModel): boolean => (
+      (col + 1 + BOARD_TILE_SIZE * row) === title
+    ))
+  }
 }

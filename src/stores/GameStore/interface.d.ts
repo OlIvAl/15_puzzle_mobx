@@ -33,7 +33,11 @@ export interface IGameStore {
 
   counter: number;
 
+  modal: string;
+
   move: (tile: ITileModel) => void;
   keypressMove: (code: string) => void;
   initNewGame: () => void;
+  openModal: (modal: string) => void;
+  closeModal: () => void;
 }
