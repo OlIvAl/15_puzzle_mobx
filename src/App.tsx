@@ -1,33 +1,45 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { inject } from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
-import {IGameStore, ITilesState} from './stores/GameStore/interface';
+import {IGameStore} from './stores/GameStore/interface';
 import Game from './Game';
 
-export interface IAppProps {
-  tiles: ITilesState;
+export interface IAppProps extends Pick<IGameStore, 'tiles' | 'counter' | 'keypressMove' | 'initNewGame'>{
+
 }
 
 // ToDo: fix it!!!
-class App extends Component<any> {
-  render() {
-    const {
-      tiles = [],
-    } = this.props;
-
-    return (
-      <>
-        <Game
-          tiles={tiles}
-        />
-        { process.env.NODE_ENV !== 'production' ? <DevTools /> : null }
-      </>
-    );
-  }
-}
+const App: React.FC<any> = ({
+  tiles = [],
+  counter = 0,
+  keypressMove,
+  initNewGame
+}): JSX.Element => (
+  <>
+    <Game
+      tiles={tiles}
+      counter={counter}
+      keypressMove={keypressMove}
+      initNewGame={initNewGame}
+    />
+    {
+      process.env.NODE_ENV !== 'production'
+        ? <DevTools />
+        : null
+    }
+  </>
+);
 
 export default inject(({
   gameStore: {
-    tiles
+    tiles,
+    counter,
+    keypressMove,
+    initNewGame
   }
-}: {gameStore: IGameStore}): IAppProps => ({ tiles }))(App);
+}: {gameStore: IGameStore}): IAppProps => ({
+  tiles,
+  counter,
+  keypressMove,
+  initNewGame
+}))(App);

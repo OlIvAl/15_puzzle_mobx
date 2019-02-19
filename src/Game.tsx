@@ -1,26 +1,74 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Wrapper from './components/Wrapper';
 import Bord from './components/Board';
+import Button from './components/Button';
+import Tile from './components/Tile';
+import Counter from './components/Counter';
+import TopConsole from './components/TopConsole';
+import BottomConsole from './components/BottomConsole';
 
 import {IAppProps} from './App';
-import {ITile} from './stores/GameStore/interface';
-import {TILE_MARGIN, TILE_SIZE} from './constants/config';
-import Tile from './components/Tile';
+import {ITileModel} from './stores/GameStore/interface';
+import {observer} from 'mobx-react';
 
-const Game: React.FC<IAppProps> = ({tiles}) => (
-  <Wrapper>
-    <Bord>
-      {tiles.map(({title, row, col}: ITile): JSX.Element => (
-        <Tile
-          title={title}
-          top={row * TILE_SIZE + row * TILE_MARGIN}
-          left={col * TILE_SIZE + col * TILE_MARGIN}
-          key={title}
-        />
-      ))}
-    </Bord>
-  </Wrapper>
-);
+class Game extends React.Component<IAppProps> {
+  constructor(props: IAppProps) {
+    super(props);
 
-export default Game;
+    this.keypressHandler = this.keypressHandler.bind(this);
+  }
+
+  keypressHandler(event: KeyboardEvent): void {
+    this.props.keypressMove(event.code);
+  }
+
+  componentDidMount(): void {
+    document.addEventListener('keydown', this.keypressHandler, false);
+  }
+
+  componentWillUnmount(): void {
+    document.removeEventListener('keydown', this.keypressHandler, false);
+  }
+
+  render(): React.ReactNode {
+    const {
+      tiles,
+      counter,
+      initNewGame
+    } = this.props;
+
+    return (
+      <Wrapper>
+        <TopConsole>
+          <Counter
+            count={counter}
+          />
+        </TopConsole>
+        <Bord>
+          {tiles.map((tile: ITileModel): JSX.Element => (
+            <Tile
+              tile={tile}
+              key={tile.title}
+            />
+          ))}
+        </Bord>
+        <BottomConsole>
+          <Button
+            onClick={initNewGame}
+          >
+            New game
+          </Button>
+          {/*<Button
+            onClick={undo}
+            disabled={!counter}
+          >
+            Undo
+          </Button>*/}
+        </BottomConsole>
+      </Wrapper>
+    );
+  }
+}
+
+export default observer(Game);

@@ -9,11 +9,11 @@ import {IGameStore} from './stores/GameStore/interface';
 
 mobx.configure({ enforceActions: 'observed' });
 
-if (process.env.NODE_ENV !== 'production') {
-  (window as any).__STORE__ = GameStore; // For Debug
-}
-
 const gameStore: IGameStore = new GameStore();
+
+if (process.env.NODE_ENV !== 'production') {
+  (window as any).__STORE__ = gameStore; // For Debug
+}
 
 ReactDOM.render(
   <Provider

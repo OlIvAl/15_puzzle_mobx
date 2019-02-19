@@ -1,21 +1,26 @@
-export interface ITile {
+export interface IAbstractTileModel {
+  store: IGameStore;
+
   title: number;
 
   row: number;
   col: number;
 
-  //top: number;
-  //left: number;
+  changePosition: (newRow: number, newCol: number) => void;
 }
 
-export interface ITileCoord {
-  title: number;
+export interface IHoleModel extends IAbstractTileModel {
 
+}
+
+export interface ITileModel extends IAbstractTileModel {
   top: number;
   left: number;
+
+  move: () => void;
 }
 
-export type ITilesState = ITile[];
+export type ITilesState = ITileModel[];
 
 export interface ITimerState {
   time: number;
@@ -24,5 +29,11 @@ export interface ITimerState {
 
 export interface IGameStore {
   tiles: ITilesState;
-  hole: ITile;
+  hole: IHoleModel;
+
+  counter: number;
+
+  move: (tile: ITileModel) => void;
+  keypressMove: (code: string) => void;
+  initNewGame: () => void;
 }

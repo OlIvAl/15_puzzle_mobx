@@ -2,12 +2,11 @@ import React from 'react';
 import {BORD_SIZE} from '../../constants/config';
 import {StyledTile} from './StyledComponents';
 
-import {ITile} from '../../stores/GameStore/interface';
+import {ITileModel} from '../../stores/GameStore/interface';
+import {observer} from 'mobx-react';
 
-interface IProps extends Pick<ITile, 'title'> {
-  top: number;
-  left: number;
- //  move: IMoveTileAsyncActionCreator;
+interface IProps {
+  tile: ITileModel
 }
 
 interface IState {
@@ -25,7 +24,6 @@ class Tile extends React.Component<IProps, IState> {
     super(props);
 
     this.mediaQueryListener = this.mediaQueryListener.bind(this);
-    //this.onClick = this.onClick.bind(this);
   }
 
   mediaQueryListener(event: MediaQueryListEvent): void {
@@ -35,15 +33,6 @@ class Tile extends React.Component<IProps, IState> {
       this.setState({coef: 1});
     }
   }
-
-  /*onClick(): void {
-    const {
-      tile,
-      // move
-    } = this.props;
-
-    move(tile);
-  }*/
 
   componentDidMount(): void {
     this.mql.addListener(this.mediaQueryListener);
@@ -59,22 +48,24 @@ class Tile extends React.Component<IProps, IState> {
 
   render(): React.ReactNode {
     const {
-      title,
-      top,
-      left
+      tile
     } = this.props;
 
     const {coef} = this.state;
 
+    const top: number = tile.top / coef;
+    const left: number = tile.left / coef;
+
     return (
       <StyledTile
-        top={top / coef}
-        left={left / coef}
+        top={top}
+        left={left}
+        onClick={tile.move}
       >
-        {title}
+        {tile.title}
       </StyledTile>
     );
   }
 }
 
-export default Tile;
+export default observer(Tile);

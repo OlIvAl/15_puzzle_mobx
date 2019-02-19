@@ -1,92 +1,93 @@
-import {IGameStore, ITile, ITilesState} from './interface';
-import {observable} from 'mobx';
+import {IGameStore, IHoleModel, ITileModel, ITilesState} from './interface';
+import {action, observable, runInAction} from 'mobx';
+import StoreHelpers from './helpers';
+import {BOARD_TILE_SIZE} from '../../constants/config';
+import TileModel from './TileModel';
+import HoleModel from './HoleModel';
 
 export default class GameStore implements IGameStore {
-  @observable tiles: ITilesState;
-  @observable hole: ITile;
+  @observable tiles: ITilesState = [];
+  // ToDo: fix it
+  @observable hole: IHoleModel = new HoleModel(this, BOARD_TILE_SIZE - 1, BOARD_TILE_SIZE - 1);
+
+  @observable counter: number = 0;
 
   constructor() {
-    this.tiles = [
-      {
-        title: 1,
-        row: 0,
-        col: 0
+    this.initNewGame();
+  }
+
+  @action.bound
+  initNewGame(): void {
+    let tiles: ITileModel[] = [];
+    // ToDo: fix it
+    let hole: IHoleModel = new HoleModel(this, BOARD_TILE_SIZE - 1, BOARD_TILE_SIZE - 1);
+
+    StoreHelpers.shuffleArr(
+      Array(BOARD_TILE_SIZE ** 2)
+        .fill(undefined)
+        .map((_, index: number): number => (index))
+    )
+      .forEach((title: number, index: number): void => {
+        if (title) {
+          tiles.push(new TileModel(
+            this,
+            title,
+            Math.floor(index / BOARD_TILE_SIZE),
+            index % BOARD_TILE_SIZE
+          ));
+        } else {
+          hole = new HoleModel(
+            this,
+            Math.floor(index / BOARD_TILE_SIZE),
+            index % BOARD_TILE_SIZE
+          );
+        }
+      });
+    runInAction(
+      'set initial tiles',
+      () => {
+        this.tiles = tiles;
       },
-      {
-        title: 2,
-        row: 0,
-        col: 1
+    );
+    runInAction(
+      'set initial hole',
+      () => {
+        this.hole = hole;
       },
-      {
-        title: 3,
-        row: 0,
-        col: 2
-      },
-      {
-        title: 4,
-        row: 0,
-        col: 3
-      },
-      {
-        title: 5,
-        row: 1,
-        col: 0
-      },
-      {
-        title: 6,
-        row: 1,
-        col: 1
-      },
-      {
-        title: 7,
-        row: 1,
-        col: 2
-      },
-      {
-        title: 8,
-        row: 1,
-        col: 3
-      },
-      {
-        title: 9,
-        row: 2,
-        col: 0
-      },
-      {
-        title: 10,
-        row: 2,
-        col: 1
-      },
-      {
-        title: 11,
-        row: 2,
-        col: 2
-      },
-      {
-        title: 12,
-        row: 2,
-        col: 3
-      },
-      {
-        title: 13,
-        row: 3,
-        col: 0
-      },
-      {
-        title: 14,
-        row: 3,
-        col: 1
-      },
-      {
-        title: 15,
-        row: 3,
-        col: 2
-      }
-    ];
-    this.hole = {
-      title: 0,
-      row: 3,
-      col: 3
+    );
+  }
+
+  @action.bound
+  move(tile: ITileModel): void {
+    if (StoreHelpers.checkMovableTile(tile, this.hole)) {
+      const newTileRow: number = this.hole.row;
+      const newTileCol: number = this.hole.col;
+
+      const newHoleRow: number = tile.row;
+      const newHoleCol: number = tile.col;
+
+      this.tiles[this.tiles.indexOf(tile)].changePosition(newTileRow, newTileCol);
+      this.hole.changePosition(newHoleRow, newHoleCol);
+
+      this.incrementCounter();
     }
+  }
+
+  @action.bound
+  keypressMove(code: string): void {
+    const currTile: ITileModel | undefined = StoreHelpers.getActiveTileForKeypress(
+      code,
+      this.tiles,
+      this.hole
+    );
+
+    if (currTile) {
+      this.move(currTile);
+    }
+  }
+
+  @action.bound
+  incrementCounter(): void {
+    this.counter = this.counter + 1;
   }
 }
