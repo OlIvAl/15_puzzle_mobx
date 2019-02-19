@@ -1,4 +1,4 @@
-import {ICounterStore, IGameStore, IModalStore, IRootStore, ITimerStore} from './GameStore/interface';
+import {ICounterStore, IGameStore, IModalStore, IRootStore, ISavedState, ITimerStore} from './GameStore/interface';
 import GameStore from './GameStore';
 import CounterStore from './CounterStore';
 import TimerStore from './TimerStore';
@@ -16,5 +16,22 @@ class RootStore implements IRootStore {
     this.counterStore = new CounterStore(this);
     this.timerStore = new TimerStore(this);
     this.modalStore = new ModalStore(this);
+  }
+
+  saveGame(): void {
+    debugger;
+
+    const state: ISavedState = {
+      tiles: this.gameStore.tiles,
+      hole: this.gameStore.hole,
+      counter: this.counterStore.counter,
+      time: this.timerStore.time,
+      intervalID: this.timerStore.intervalID,
+    };
+
+    localStorage.setItem(
+      'state',
+      JSON.stringify(state)
+    )
   }
 }

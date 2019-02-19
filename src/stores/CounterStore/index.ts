@@ -1,4 +1,4 @@
-import {ICounterStore, IRootStore} from '../GameStore/interface';
+import {ICounterStore, IRootStore, ISavedState} from '../GameStore/interface';
 import {action, observable} from 'mobx';
 
 export default
@@ -9,8 +9,13 @@ class CounterStore implements ICounterStore {
 
   constructor(rootStore: IRootStore) {
     this.rootStore = rootStore;
-  }
 
+    const stringifyState: string | null = localStorage.getItem('state');
+
+    if (stringifyState) {
+      this.counter = (JSON.parse(stringifyState) as ISavedState).counter
+    }
+  }
 
   @action.bound
   incrementCounter(): void {

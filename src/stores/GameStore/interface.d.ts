@@ -1,8 +1,16 @@
+export interface ISavedState extends Pick<IGameStore, 'tiles' | 'hole'>,
+  Pick<ICounterStore, 'counter'>,
+  Pick<ITimerStore, 'time' | 'intervalID'>{
+
+}
+
 export interface IRootStore {
   gameStore: IGameStore;
   counterStore: ICounterStore;
   timerStore: ITimerStore;
   modalStore: IModalStore;
+
+  saveGame: () => void;
 }
 
 export interface IAbstractTileModel {
@@ -56,6 +64,8 @@ export interface ITimerStore {
   intervalID: number | undefined;
 
   incrementTime: () => void;
+  createTimer: () => void;
+  clearInterval: () => void;
 }
 export interface IModalStore {
   rootStore: IRootStore;

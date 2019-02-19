@@ -1,4 +1,4 @@
-import {IGameStore, IHoleModel, IRootStore, ITileModel, ITilesState} from './interface';
+import {IGameStore, IHoleModel, IRootStore, ISavedState, ITileModel, ITilesState} from './interface';
 import {action, observable, runInAction} from 'mobx';
 import StoreHelpers from './helpers';
 import {BOARD_TILE_SIZE} from '../../constants/config';
@@ -15,10 +15,19 @@ export default class GameStore implements IGameStore {
   constructor(rootStore: IRootStore) {
     this.rootStore = rootStore;
 
-    const {tiles, hole}: Pick<IGameStore, 'tiles' | 'hole'> = this.generateInitialTiesSet();
+    const stringifyState: string | null = localStorage.getItem('state');
 
-    this.tiles = tiles;
-    this.hole = hole;
+    if (stringifyState) {
+      const {tiles, hole}: ISavedState = JSON.parse(stringifyState);
+
+      this.tiles = tiles;
+      this.hole = hole;
+    } else {
+      const {tiles, hole}: Pick<IGameStore, 'tiles' | 'hole'> = this.generateInitialTiesSet();
+
+      this.tiles = tiles;
+      this.hole = hole;
+    }
   }
 
   generateInitialTiesSet(): Pick<IGameStore, 'tiles' | 'hole'> {
@@ -93,6 +102,11 @@ export default class GameStore implements IGameStore {
       this.hole.changePosition(newHoleRow, newHoleCol);
 
       this.rootStore.counterStore.incrementCounter();
+
+      if (this.rootStore.counterStore.counter === 1) {
+        this.rootStore.timerStore.createTimer();
+      }
+
       this.checkWin();
     }
   }
@@ -109,11 +123,13 @@ export default class GameStore implements IGameStore {
       this.move(currTile);
     }
   }
-  
+
   @action.bound
   checkWin(): void {
     if(StoreHelpers.checkWinGame(this.tiles)) {
       this.rootStore.modalStore.openModal(WIN_MODAL);
+    } else {
+      // this.rootStore.saveGame();
     }
   }
 }

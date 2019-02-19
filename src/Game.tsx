@@ -13,6 +13,7 @@ import {ITileModel} from './stores/GameStore/interface';
 import {observer} from 'mobx-react';
 import {WIN_MODAL} from './constants/modals';
 import Modal from './components/Modal';
+import Timer from './components/Timer';
 
 class Game extends React.Component<IAppProps> {
   constructor(props: IAppProps) {
@@ -37,6 +38,7 @@ class Game extends React.Component<IAppProps> {
     const {
       tiles,
       counter,
+      formedTime,
       initNewGame,
       modal,
       closeModal
@@ -47,6 +49,9 @@ class Game extends React.Component<IAppProps> {
         <TopConsole>
           <Counter
             count={counter}
+          />
+          <Timer
+            time={formedTime}
           />
         </TopConsole>
         <Bord>
