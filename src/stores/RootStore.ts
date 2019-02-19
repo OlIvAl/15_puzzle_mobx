@@ -1,4 +1,12 @@
-import {ICounterStore, IGameStore, IModalStore, IRootStore, ISavedState, ITimerStore} from './GameStore/interface';
+import {
+  ICounterStore,
+  IGameStore,
+  IModalStore,
+  IRootStore,
+  ISavedState, ISerializeTile,
+  ITileModel,
+  ITimerStore
+} from './GameStore/interface';
 import GameStore from './GameStore';
 import CounterStore from './CounterStore';
 import TimerStore from './TimerStore';
@@ -19,14 +27,19 @@ class RootStore implements IRootStore {
   }
 
   saveGame(): void {
-    debugger;
-
     const state: ISavedState = {
-      tiles: this.gameStore.tiles,
-      hole: this.gameStore.hole,
+      tiles: this.gameStore.tiles.map(({title, row, col}: ITileModel): ISerializeTile => ({
+        title,
+        row,
+        col
+      })),
+      hole: {
+        title: this.gameStore.hole.title,
+        row: this.gameStore.hole.row,
+        col: this.gameStore.hole.col
+      },
       counter: this.counterStore.counter,
       time: this.timerStore.time,
-      intervalID: this.timerStore.intervalID,
     };
 
     localStorage.setItem(

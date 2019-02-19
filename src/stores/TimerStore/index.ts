@@ -26,7 +26,8 @@ class TimerStore implements ITimerStore {
 
     if (stringifyState) {
       this.time = (JSON.parse(stringifyState) as ISavedState).time;
-      this.intervalID = (JSON.parse(stringifyState) as ISavedState).intervalID;
+
+      this.createTimer();
     }
   }
 
@@ -50,5 +51,10 @@ class TimerStore implements ITimerStore {
 
       this.intervalID = undefined;
     }
+  }
+
+  @action.bound
+  clearTime(): void {
+    this.time = 0;
   }
 }

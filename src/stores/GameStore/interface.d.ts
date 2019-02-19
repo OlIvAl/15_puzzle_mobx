@@ -1,7 +1,12 @@
-export interface ISavedState extends Pick<IGameStore, 'tiles' | 'hole'>,
-  Pick<ICounterStore, 'counter'>,
-  Pick<ITimerStore, 'time' | 'intervalID'>{
+export interface ISerializeTile {
+  title: number;
+  row: number;
+  col: number;
+}
 
+export interface ISavedState extends Pick<ICounterStore, 'counter'>, Pick<ITimerStore, 'time'>{
+  tiles: ISerializeTile[];
+  hole: ISerializeTile;
 }
 
 export interface IRootStore {
@@ -54,6 +59,7 @@ export interface ICounterStore {
 
   counter: number;
   incrementCounter: () => void;
+  clearCounter: () => void;
 }
 export interface ITimerStore {
   rootStore: IRootStore;
@@ -66,6 +72,7 @@ export interface ITimerStore {
   incrementTime: () => void;
   createTimer: () => void;
   clearInterval: () => void;
+  clearTime: () => void;
 }
 export interface IModalStore {
   rootStore: IRootStore;

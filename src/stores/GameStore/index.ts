@@ -1,5 +1,5 @@
-import {IGameStore, IHoleModel, IRootStore, ISavedState, ITileModel, ITilesState} from './interface';
-import {action, observable, runInAction} from 'mobx';
+import {IGameStore, IHoleModel, IRootStore, ISavedState, ISerializeTile, ITileModel, ITilesState} from './interface';
+import {action, observable} from 'mobx';
 import StoreHelpers from './helpers';
 import {BOARD_TILE_SIZE} from '../../constants/config';
 import TileModel from './TileModel';
@@ -20,8 +20,8 @@ export default class GameStore implements IGameStore {
     if (stringifyState) {
       const {tiles, hole}: ISavedState = JSON.parse(stringifyState);
 
-      this.tiles = tiles;
-      this.hole = hole;
+      this.tiles = tiles.map(({title, row, col}: ISerializeTile): ITileModel => (new TileModel(this, title, row, col)));
+      this.hole = new HoleModel(this, hole.row, hole.col);
     } else {
       const {tiles, hole}: Pick<IGameStore, 'tiles' | 'hole'> = this.generateInitialTiesSet();
 
@@ -75,18 +75,15 @@ export default class GameStore implements IGameStore {
   initNewGame(): void {
     const {tiles, hole}: Pick<IGameStore, 'tiles' | 'hole'> = this.generateInitialTiesSet();
 
-    runInAction(
-      'set initial tiles',
-      () => {
-        this.tiles = tiles;
-      },
-    );
-    runInAction(
-      'set initial hole',
-      () => {
-        this.hole = hole;
-      },
-    );
+    this.tiles = tiles;
+    this.hole = hole;
+
+    this.rootStore.timerStore.clearInterval();
+    this.rootStore.timerStore.clearTime();
+
+    this.rootStore.counterStore.clearCounter();
+
+    localStorage.removeItem('state');
   }
 
   @action.bound
@@ -128,8 +125,12 @@ export default class GameStore implements IGameStore {
   checkWin(): void {
     if(StoreHelpers.checkWinGame(this.tiles)) {
       this.rootStore.modalStore.openModal(WIN_MODAL);
+
+      this.rootStore.timerStore.clearInterval();
+
+      localStorage.removeItem('state');
     } else {
-      // this.rootStore.saveGame();
+      this.rootStore.saveGame();
     }
   }
 }
