@@ -1,3 +1,10 @@
+export interface IRootStore {
+  gameStore: IGameStore;
+  counterStore: ICounterStore;
+  timerStore: ITimerStore;
+  modalStore: IModalStore;
+}
+
 export interface IAbstractTileModel {
   store: IGameStore;
 
@@ -22,22 +29,39 @@ export interface ITileModel extends IAbstractTileModel {
 
 export type ITilesState = ITileModel[];
 
-export interface ITimerState {
-  time: number;
-  intervalID: number | undefined;
-}
-
 export interface IGameStore {
+  rootStore: IRootStore;
+
   tiles: ITilesState;
   hole: IHoleModel;
 
-  counter: number;
-
-  modal: string;
-
+  generateInitialTiesSet: () => Pick<IGameStore, 'tiles' | 'hole'>
   move: (tile: ITileModel) => void;
   keypressMove: (code: string) => void;
   initNewGame: () => void;
+}
+
+export interface ICounterStore {
+  rootStore: IRootStore;
+
+  counter: number;
+  incrementCounter: () => void;
+}
+export interface ITimerStore {
+  rootStore: IRootStore;
+
+  time: number;
+  formedTime: string;
+
+  intervalID: number | undefined;
+
+  incrementTime: () => void;
+}
+export interface IModalStore {
+  rootStore: IRootStore;
+
+  modal: string;
+
   openModal: (modal: string) => void;
   closeModal: () => void;
 }

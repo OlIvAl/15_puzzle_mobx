@@ -1,10 +1,13 @@
 import React from 'react';
 import { inject } from 'mobx-react';
 import DevTools from 'mobx-react-devtools';
-import {IGameStore} from './stores/GameStore/interface';
+import {ICounterStore, IGameStore, IModalStore, IRootStore, ITimerStore} from './stores/GameStore/interface';
 import Game from './Game';
 
-export interface IAppProps extends Pick<IGameStore, 'tiles' | 'counter' | 'keypressMove' | 'initNewGame' | 'modal' | 'closeModal'>{
+export interface IAppProps extends Pick<IGameStore, 'tiles' | 'keypressMove' | 'initNewGame'>,
+  Pick<ICounterStore, 'counter'>,
+  Pick<ITimerStore, 'formedTime'>,
+  Pick<IModalStore, 'modal' | 'closeModal'>{
 
 }
 
@@ -15,12 +18,14 @@ const App: React.FC<any> = ({
   keypressMove,
   initNewGame,
   modal,
+  formedTime,
   closeModal
 }): JSX.Element => (
   <>
     <Game
       tiles={tiles}
       counter={counter}
+      formedTime={formedTime}
       keypressMove={keypressMove}
       initNewGame={initNewGame}
       modal={modal}
@@ -37,17 +42,25 @@ const App: React.FC<any> = ({
 export default inject(({
   gameStore: {
     tiles,
-    counter,
     keypressMove,
-    initNewGame,
+    initNewGame
+  },
+  counterStore: {
+    counter
+  },
+  timerStore: {
+    formedTime
+  },
+  modalStore: {
     modal,
     closeModal
   }
-}: {gameStore: IGameStore}): IAppProps => ({
+}: IRootStore): IAppProps => ({
   tiles,
-  counter,
   keypressMove,
   initNewGame,
+  counter,
+  formedTime,
   modal,
   closeModal
 }))(App);

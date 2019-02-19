@@ -4,20 +4,23 @@ import App from './App';
 
 import * as mobx from 'mobx';
 import { Provider } from 'mobx-react';
-import GameStore from './stores/GameStore';
-import {IGameStore} from './stores/GameStore/interface';
+import RootStore from './stores/RootStore';
+import {IRootStore} from './stores/GameStore/interface';
 
 mobx.configure({ enforceActions: 'observed' });
 
-const gameStore: IGameStore = new GameStore();
+const rootStore: IRootStore = new RootStore();
 
 if (process.env.NODE_ENV !== 'production') {
-  (window as any).__STORE__ = gameStore; // For Debug
+  (window as any).__STORES__ = rootStore; // For Debug
 }
 
 ReactDOM.render(
   <Provider
-    gameStore={gameStore}
+    gameStore={rootStore.gameStore}
+    counterStore={rootStore.counterStore}
+    timerStore={rootStore.timerStore}
+    modalStore={rootStore.modalStore}
   >
     <App />
   </Provider>,

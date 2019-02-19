@@ -1,4 +1,4 @@
-import {IGameStore, IHoleModel, ITileModel, ITilesState} from './interface';
+import {IGameStore, IHoleModel, IRootStore, ITileModel, ITilesState} from './interface';
 import {action, observable, runInAction} from 'mobx';
 import StoreHelpers from './helpers';
 import {BOARD_TILE_SIZE} from '../../constants/config';
@@ -7,44 +7,65 @@ import HoleModel from './HoleModel';
 import {WIN_MODAL} from '../../constants/modals';
 
 export default class GameStore implements IGameStore {
-  @observable tiles: ITilesState = [];
-  // ToDo: fix it
-  @observable hole: IHoleModel = new HoleModel(this, BOARD_TILE_SIZE - 1, BOARD_TILE_SIZE - 1);
+  rootStore: IRootStore;
 
-  @observable counter: number = 0;
-  @observable modal: string = '';
+  @observable tiles: ITilesState;
+  @observable hole: IHoleModel;
 
-  constructor() {
-    this.initNewGame();
+  constructor(rootStore: IRootStore) {
+    this.rootStore = rootStore;
+
+    const {tiles, hole}: Pick<IGameStore, 'tiles' | 'hole'> = this.generateInitialTiesSet();
+
+    this.tiles = tiles;
+    this.hole = hole;
   }
 
-  @action.bound
-  initNewGame(): void {
-    let tiles: ITileModel[] = [];
-    // ToDo: fix it
-    let hole: IHoleModel = new HoleModel(this, BOARD_TILE_SIZE - 1, BOARD_TILE_SIZE - 1);
-
-    StoreHelpers.shuffleArr(
+  generateInitialTiesSet(): Pick<IGameStore, 'tiles' | 'hole'> {
+    return StoreHelpers.shuffleArr(
       Array(BOARD_TILE_SIZE ** 2)
         .fill(undefined)
         .map((_, index: number): number => (index))
     )
-      .forEach((title: number, index: number): void => {
-        if (title) {
-          tiles.push(new TileModel(
-            this,
-            title,
-            Math.floor(index / BOARD_TILE_SIZE),
-            index % BOARD_TILE_SIZE
-          ));
-        } else {
-          hole = new HoleModel(
-            this,
-            Math.floor(index / BOARD_TILE_SIZE),
-            index % BOARD_TILE_SIZE
-          );
+      .reduce<Pick<IGameStore, 'tiles' | 'hole'>>(
+        (
+          accumulator: Pick<IGameStore, 'tiles' | 'hole'>,
+          currentValue: number,
+          index: number
+        ): Pick<IGameStore, 'tiles' | 'hole'> => {
+          if (currentValue) {
+            return {
+              ...accumulator,
+              tiles: accumulator.tiles.concat(
+                new TileModel(
+                  this,
+                  currentValue,
+                  Math.floor(index / BOARD_TILE_SIZE),
+                  index % BOARD_TILE_SIZE)
+              )
+            };
+          } else {
+            return {
+              ...accumulator,
+              hole: new HoleModel(
+                this,
+                Math.floor(index / BOARD_TILE_SIZE),
+                index % BOARD_TILE_SIZE
+              )
+            };
+          }
+        },
+        {
+          tiles: [],
+          hole: new HoleModel(this, BOARD_TILE_SIZE - 1, BOARD_TILE_SIZE - 1)
         }
-      });
+      );
+  }
+
+  @action.bound
+  initNewGame(): void {
+    const {tiles, hole}: Pick<IGameStore, 'tiles' | 'hole'> = this.generateInitialTiesSet();
+
     runInAction(
       'set initial tiles',
       () => {
@@ -71,7 +92,7 @@ export default class GameStore implements IGameStore {
       this.tiles[this.tiles.indexOf(tile)].changePosition(newTileRow, newTileCol);
       this.hole.changePosition(newHoleRow, newHoleCol);
 
-      this.incrementCounter();
+      this.rootStore.counterStore.incrementCounter();
       this.checkWin();
     }
   }
@@ -88,26 +109,11 @@ export default class GameStore implements IGameStore {
       this.move(currTile);
     }
   }
-
-  @action.bound
-  incrementCounter(): void {
-    this.counter = this.counter + 1;
-  }
-
+  
   @action.bound
   checkWin(): void {
     if(StoreHelpers.checkWinGame(this.tiles)) {
-      this.openModal(WIN_MODAL);
+      this.rootStore.modalStore.openModal(WIN_MODAL);
     }
-  }
-
-  @action.bound
-  openModal(modalName: string): void {
-    this.modal = modalName;
-  }
-
-  @action.bound
-  closeModal(): void {
-    this.modal = '';
   }
 }
