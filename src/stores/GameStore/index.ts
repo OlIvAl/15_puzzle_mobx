@@ -116,6 +116,9 @@ export default class GameStore implements IGameStore {
 
     this.rootStore.counterStore.clearCounter();
 
+    this.previousTiles.clear();
+    this.previousHole.clear();
+
     localStorage.removeItem('state');
   }
 

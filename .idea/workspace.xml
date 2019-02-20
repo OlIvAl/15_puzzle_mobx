@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f28fe8a9-10e4-4286-b25d-005b02ed4950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/stores/GameStore/Stack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/CounterStore/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/CounterStore/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/GameStore/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GameStore/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/GameStore/interface.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GameStore/interface.d.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,25 +19,24 @@
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/stores/GameStore/Stack.ts">
+            <entry file="file://$PROJECT_DIR$/src/stores/GameStore/index.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="383">
-                  <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+                <state relative-caret-position="561">
+                  <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#1181#2312#0" />
+                    <element signature="e#3362#3558#0" />
+                    <element signature="e#3595#3845#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/stores/GameStore/index.ts">
+            <entry file="file://$PROJECT_DIR$/src/App.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="267">
-                  <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#1181#2312#0" />
-                    <element signature="e#2352#2676#0" />
-                    <element signature="e#3362#3558#0" />
-                    <element signature="e#3595#3845#0" />
-                  </folding>
+                <state relative-caret-position="420">
+                  <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -120,13 +114,13 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/stores/RootStore.ts" />
         <option value="$PROJECT_DIR$/src/stores/TimerStore/index.ts" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Game.tsx" />
-        <option value="$PROJECT_DIR$/src/App.tsx" />
         <option value="$PROJECT_DIR$/src/stores/CounterStore/index.ts" />
         <option value="$PROJECT_DIR$/src/stores/GameStore/Stack.ts" />
         <option value="$PROJECT_DIR$/src/stores/GameStore/interface.d.ts" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/stores/GameStore/index.ts" />
+        <option value="$PROJECT_DIR$/src/App.tsx" />
       </list>
     </option>
   </component>
@@ -404,16 +398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="153">
-            <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -421,13 +405,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -459,16 +436,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="153">
+            <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/GameStore/index.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
+        <state relative-caret-position="561">
+          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
           <folding>
             <element signature="e#1181#2312#0" />
-            <element signature="e#2352#2676#0" />
             <element signature="e#3362#3558#0" />
             <element signature="e#3595#3845#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
         </state>
       </provider>
     </entry>
