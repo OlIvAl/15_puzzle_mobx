@@ -23,6 +23,11 @@ class CounterStore implements ICounterStore {
   }
 
   @action.bound
+  decrementCounter(): void {
+    this.counter = this.counter - 1;
+  }
+
+  @action.bound
   clearCounter(): void {
     this.counter = 0;
   }

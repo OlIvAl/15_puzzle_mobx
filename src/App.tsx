@@ -4,7 +4,7 @@ import DevTools from 'mobx-react-devtools';
 import {ICounterStore, IGameStore, IModalStore, IRootStore, ITimerStore} from './stores/GameStore/interface';
 import Game from './Game';
 
-export interface IAppProps extends Pick<IGameStore, 'tiles' | 'keypressMove' | 'initNewGame'>,
+export interface IAppProps extends Pick<IGameStore, 'tiles' | 'keypressMove' | 'initNewGame' | 'undo'>,
   Pick<ICounterStore, 'counter'>,
   Pick<ITimerStore, 'formedTime'>,
   Pick<IModalStore, 'modal' | 'closeModal'>{
@@ -17,6 +17,7 @@ const App: React.FC<any> = ({
   counter = 0,
   keypressMove,
   initNewGame,
+  undo,
   modal,
   formedTime,
   closeModal
@@ -28,6 +29,7 @@ const App: React.FC<any> = ({
       formedTime={formedTime}
       keypressMove={keypressMove}
       initNewGame={initNewGame}
+      undo={undo}
       modal={modal}
       closeModal={closeModal}
     />
@@ -43,7 +45,8 @@ export default inject(({
   gameStore: {
     tiles,
     keypressMove,
-    initNewGame
+    initNewGame,
+    undo
   },
   counterStore: {
     counter
@@ -59,6 +62,7 @@ export default inject(({
   tiles,
   keypressMove,
   initNewGame,
+  undo,
   counter,
   formedTime,
   modal,

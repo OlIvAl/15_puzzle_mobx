@@ -40,6 +40,7 @@ class Game extends React.Component<IAppProps> {
       counter,
       formedTime,
       initNewGame,
+      undo,
       modal,
       closeModal
     } = this.props;
@@ -68,12 +69,12 @@ class Game extends React.Component<IAppProps> {
           >
             New game
           </Button>
-          {/*<Button
+          <Button
             onClick={undo}
             disabled={!counter}
           >
             Undo
-          </Button>*/}
+          </Button>
         </BottomConsole>
 
         {modal === WIN_MODAL

@@ -1,3 +1,13 @@
+export interface IStack<T> {
+  push: (item: T) => T[];
+  pop: () => T;
+
+  size: () => number;
+  peek: () => T;
+  isEmpty: () => boolean;
+  clear: () => void;
+}
+
 export interface ISerializeTile {
   title: number;
   row: number;
@@ -48,10 +58,13 @@ export interface IGameStore {
   tiles: ITilesState;
   hole: IHoleModel;
 
-  generateInitialTiesSet: () => Pick<IGameStore, 'tiles' | 'hole'>
+  previousTiles: IStack<ISerializeTile[]>;
+  previousHole: IStack<ISerializeTile>;
+
   move: (tile: ITileModel) => void;
   keypressMove: (code: string) => void;
   initNewGame: () => void;
+  undo: () => void;
 }
 
 export interface ICounterStore {
@@ -59,6 +72,7 @@ export interface ICounterStore {
 
   counter: number;
   incrementCounter: () => void;
+  decrementCounter: () => void;
   clearCounter: () => void;
 }
 export interface ITimerStore {
