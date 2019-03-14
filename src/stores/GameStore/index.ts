@@ -7,7 +7,7 @@ import {
   IStack,
   ITileModel,
   ITilesState
-} from './interface';
+} from '../interface';
 import {action, observable} from 'mobx';
 import StoreHelpers from './helpers';
 import {BOARD_TILE_SIZE} from '../../constants/config';
@@ -25,63 +25,35 @@ export default class GameStore implements IGameStore {
   previousTiles: IStack<ISerializeTile[]> = new Stack();
   previousHole: IStack<ISerializeTile> = new Stack();
 
-  constructor(rootStore: IRootStore) {
+  constructor(
+    rootStore: IRootStore,
+    serializeTiles: ISerializeTile[],
+    serializeHole: ISerializeTile,
+    previousTiles?: ISerializeTile[][],
+    previousHole?: ISerializeTile[]
+  ) {
     this.rootStore = rootStore;
 
-    const stringifyState: string | null = localStorage.getItem('state');
+    this.tiles = serializeTiles.map(({title, row, col}: ISerializeTile): ITileModel =>
+      (new TileModel(this, title, row, col))
+    );
+    this.hole = new HoleModel(this, serializeHole.row, serializeHole.col);
 
-    if (stringifyState) {
-      const {tiles, hole}: ISavedState = JSON.parse(stringifyState);
-
-      this.tiles = tiles.map(({title, row, col}: ISerializeTile): ITileModel => (new TileModel(this, title, row, col)));
-      this.hole = new HoleModel(this, hole.row, hole.col);
-    } else {
-      const {tiles, hole}: Pick<IGameStore, 'tiles' | 'hole'> = this._generateInitialTiesSet();
-
-      this.tiles = tiles;
-      this.hole = hole;
+    if(previousTiles && previousHole) {
+      this.previousTiles = new Stack<ISerializeTile[]>(previousTiles);
+      this.previousHole = new Stack<ISerializeTile>(previousHole);
     }
   }
 
-  private _generateInitialTiesSet(): Pick<IGameStore, 'tiles' | 'hole'> {
-    return StoreHelpers.shuffleArr(
-      Array(BOARD_TILE_SIZE ** 2)
-        .fill(undefined)
-        .map((_, index: number): number => (index))
-    )
-      .reduce<Pick<IGameStore, 'tiles' | 'hole'>>(
-        (
-          accumulator: Pick<IGameStore, 'tiles' | 'hole'>,
-          currentValue: number,
-          index: number
-        ): Pick<IGameStore, 'tiles' | 'hole'> => {
-          if (currentValue) {
-            return {
-              ...accumulator,
-              tiles: accumulator.tiles.concat(
-                new TileModel(
-                  this,
-                  currentValue,
-                  Math.floor(index / BOARD_TILE_SIZE),
-                  index % BOARD_TILE_SIZE)
-              )
-            };
-          } else {
-            return {
-              ...accumulator,
-              hole: new HoleModel(
-                this,
-                Math.floor(index / BOARD_TILE_SIZE),
-                index % BOARD_TILE_SIZE
-              )
-            };
-          }
-        },
-        {
-          tiles: [],
-          hole: new HoleModel(this, BOARD_TILE_SIZE - 1, BOARD_TILE_SIZE - 1)
-        }
-      );
+  @action.bound
+  initNewGame(serializeTiles: ISerializeTile[], serializeHole: ISerializeTile): void {
+    this.tiles = serializeTiles.map(({title, row, col}: ISerializeTile): ITileModel =>
+      (new TileModel(this, title, row, col))
+    );
+    this.hole = new HoleModel(this, serializeHole.row, serializeHole.col);
+
+    this.previousTiles.clear();
+    this.previousHole.clear();
   }
 
   @action.bound
@@ -105,37 +77,19 @@ export default class GameStore implements IGameStore {
   }
 
   @action.bound
-  initNewGame(): void {
-    const {tiles, hole}: Pick<IGameStore, 'tiles' | 'hole'> = this._generateInitialTiesSet();
-
-    this.tiles = tiles;
-    this.hole = hole;
-
-    this.rootStore.timerStore.clearInterval();
-    this.rootStore.timerStore.clearTime();
-
-    this.rootStore.counterStore.clearCounter();
-
-    this.previousTiles.clear();
-    this.previousHole.clear();
-
-    localStorage.removeItem('state');
-  }
-
-  @action.bound
   move(tile: ITileModel): void {
     if (StoreHelpers.checkMovableTile(tile, this.hole)) {
-      const newTileRow: number = this.hole.row;
-      const newTileCol: number = this.hole.col;
-
-      const newHoleRow: number = tile.row;
-      const newHoleCol: number = tile.col;
-
       this._setTilesToPrevious();
       this._setHoleToPrevious();
 
-      this.tiles[this.tiles.indexOf(tile)].changePosition(newTileRow, newTileCol);
-      this.hole.changePosition(newHoleRow, newHoleCol);
+      this.tiles[this.tiles.indexOf(tile)].changePosition(
+        this.hole.row,
+        this.hole.col
+      );
+      this.hole.changePosition(
+        tile.row,
+        tile.col
+      );
 
       this.rootStore.counterStore.incrementCounter();
 
@@ -163,11 +117,7 @@ export default class GameStore implements IGameStore {
   @action.bound
   checkWin(): void {
     if(StoreHelpers.checkWinGame(this.tiles)) {
-      this.rootStore.modalStore.openModal(WIN_MODAL);
-
-      this.rootStore.timerStore.clearInterval();
-
-      localStorage.removeItem('state');
+      this.rootStore.winGame();
     } else {
       this.rootStore.saveGame();
     }

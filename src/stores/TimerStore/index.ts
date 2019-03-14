@@ -1,12 +1,12 @@
-import {IRootStore, ISavedState, ITimerStore} from '../GameStore/interface';
+import {IRootStore, ISavedState, ITimerStore} from '../interface';
 import {action, computed, observable} from 'mobx';
 
 export default
 class TimerStore implements ITimerStore {
   rootStore: IRootStore;
 
-  @observable time: number = 0;
-  @observable intervalID: number | undefined = undefined;
+  time: number = 0;
+  intervalID: number | undefined = undefined;
 
   @computed get formedTime(): string {
     const time: number = this.time;
@@ -19,16 +19,10 @@ class TimerStore implements ITimerStore {
       + `${second.toString().length < 2 ? `0${second}` : second}`
   }
 
-  constructor(rootStore: IRootStore) {
+  constructor(rootStore: IRootStore, time: number = 0) {
     this.rootStore = rootStore;
 
-    const stringifyState: string | null = localStorage.getItem('state');
-
-    if (stringifyState) {
-      this.time = (JSON.parse(stringifyState) as ISavedState).time;
-
-      this.createTimer();
-    }
+    this.time = time;
   }
 
   @action.bound
@@ -38,10 +32,12 @@ class TimerStore implements ITimerStore {
 
   @action.bound
   createTimer(): void {
-    this.intervalID = setInterval(
-      this.incrementTime,
-      1000
-    );
+    if(!this.intervalID) {
+      this.intervalID = setInterval(
+        this.incrementTime,
+        1000
+      );
+    }
   }
 
   @action.bound

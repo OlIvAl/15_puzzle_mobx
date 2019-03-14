@@ -1,6 +1,6 @@
 import {action, computed, observable} from 'mobx';
 import AbstractTileModel from './AbstractTileModel';
-import {IGameStore, ITileModel} from './interface';
+import {IGameStore, ITileModel} from '../interface';
 import {TILE_MARGIN, TILE_SIZE} from '../../constants/config';
 
 export default

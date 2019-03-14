@@ -8,15 +8,15 @@ import Counter from './components/Counter';
 import TopConsole from './components/TopConsole';
 import BottomConsole from './components/BottomConsole';
 
-import {IAppProps} from './App';
-import {ITileModel} from './stores/GameStore/interface';
+import {IInjectedProps} from './App';
+import {ITileModel} from './stores/interface';
 import {observer} from 'mobx-react';
 import {WIN_MODAL} from './constants/modals';
 import Modal from './components/Modal';
 import Timer from './components/Timer';
 
-class Game extends React.Component<IAppProps> {
-  constructor(props: IAppProps) {
+class Game extends React.Component<IInjectedProps> {
+  constructor(props: IInjectedProps) {
     super(props);
 
     this.keypressHandler = this.keypressHandler.bind(this);

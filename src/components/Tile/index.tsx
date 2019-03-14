@@ -2,7 +2,7 @@ import React from 'react';
 import {BORD_SIZE} from '../../constants/config';
 import {StyledTile} from './StyledComponents';
 
-import {ITileModel} from '../../stores/GameStore/interface';
+import {ITileModel} from '../../stores/interface';
 import {observer} from 'mobx-react';
 
 interface IProps {

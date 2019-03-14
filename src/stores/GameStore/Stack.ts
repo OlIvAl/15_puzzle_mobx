@@ -1,10 +1,10 @@
-import {IStack} from './interface';
+import {IStack} from '../interface';
 
 export default
 class Stack<T> implements IStack<T> {
   private _items: T[] = [];
 
-  constructor(...items: T[]) {
+  constructor(items: T[] = []) {
     if(items.length) {
       this._items = items;
     }
@@ -40,5 +40,9 @@ class Stack<T> implements IStack<T> {
 
   clear(): void {
     this._items = [];
+  }
+
+  toArray(): T[] {
+    return this._items;
   }
 }

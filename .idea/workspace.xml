@@ -2,8 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f28fe8a9-10e4-4286-b25d-005b02ed4950" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/stores/CounterStore/CounterStore.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/GameStore/GameStore.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/GameStore/HoleModel.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/GameStore/Stack.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/GameStore/TileModel.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/GameStore/helpers.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/ModalStore/ModalStore.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/RootStore.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/TimerStore/TimerStore.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Tile/Tile.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tile/Tile.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Tile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/CounterStore/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/CounterStore/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/GameStore/HoleModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GameStore/HoleModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/GameStore/Stack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GameStore/Stack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/GameStore/TileModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GameStore/TileModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/GameStore/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GameStore/helpers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stores/GameStore/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GameStore/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/GameStore/interface.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/interface.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/ModalStore/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ModalStore/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/RootStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/RootStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/TimerStore/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/TimerStore/index.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,66 +40,65 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/stores/GameStore/index.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="561">
-                  <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-                  <folding>
-                    <element signature="e#1181#2312#0" />
-                    <element signature="e#3362#3558#0" />
-                    <element signature="e#3595#3845#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/App.tsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/stores/GameStore/interface.d.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/stores/CounterStore/index.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/stores/RootStore.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="494">
-                  <caret line="44" column="25" lean-forward="true" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stores/RootStore.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stores/GameStore/index.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stores/interface.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Game.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="689">
+              <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stores/GameStore/Stack.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,9 +110,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>deb</find>
+      <find>spy</find>
+      <find>initNewGame</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\oliva\WebstormProjects\15_puzzle_mobx\src</dir>
+      <dir>C:\Users\oliva\WebstormProjects\15_puzzle_mobx\src\stores</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -104,21 +131,33 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/Tile/StyledComponents.ts" />
         <option value="$PROJECT_DIR$/src/components/Tile/index.tsx" />
-        <option value="$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.ts" />
         <option value="$PROJECT_DIR$/src/stores/GameStore/TileModel.ts" />
         <option value="$PROJECT_DIR$/src/stores/GameStore/HoleModel.ts" />
-        <option value="$PROJECT_DIR$/src/stores/GameStore/helpers.ts" />
         <option value="$PROJECT_DIR$/src/stores/index.ts" />
-        <option value="$PROJECT_DIR$/src/index.tsx" />
         <option value="$PROJECT_DIR$/src/stores/ModalStore/index.ts" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/stores/RootStore.ts" />
-        <option value="$PROJECT_DIR$/src/stores/TimerStore/index.ts" />
-        <option value="$PROJECT_DIR$/src/Game.tsx" />
-        <option value="$PROJECT_DIR$/src/stores/CounterStore/index.ts" />
-        <option value="$PROJECT_DIR$/src/stores/GameStore/Stack.ts" />
-        <option value="$PROJECT_DIR$/src/stores/GameStore/interface.d.ts" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/interface.d.ts" />
+        <option value="$PROJECT_DIR$/src/stores/CounterStore/CounterStore.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/ModalStore/ModalStore.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/Stack.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/HoleModel.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/TileModel.test.ts" />
+        <option value="$PROJECT_DIR$/src/index.tsx" />
+        <option value="$PROJECT_DIR$/src/Game.tsx" />
+        <option value="$PROJECT_DIR$/src/stores/TimerStore/TimerStore.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/GameStore.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/helpers.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/TimerStore/index.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/helpers.ts" />
+        <option value="$PROJECT_DIR$/src/stores/RootStore.ts" />
+        <option value="$PROJECT_DIR$/src/stores/CounterStore/index.ts" />
+        <option value="$PROJECT_DIR$/src/components/Tile/Tile.test.tsx" />
+        <option value="$PROJECT_DIR$/src/stores/RootStore.test.ts" />
+        <option value="$PROJECT_DIR$/src/stores/GameStore/Stack.ts" />
+        <option value="$PROJECT_DIR$/src/stores/interface.d.ts" />
         <option value="$PROJECT_DIR$/src/stores/GameStore/index.ts" />
         <option value="$PROJECT_DIR$/src/App.tsx" />
       </list>
@@ -138,7 +177,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,12 +198,6 @@
               <item name="15_puzzle_mobx" type="b2602c69:ProjectViewProjectNode" />
               <item name="15_puzzle_mobx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="15_puzzle_mobx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="15_puzzle_mobx" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="stores" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -175,10 +207,25 @@
               <item name="stores" type="462c0819:PsiDirectoryNode" />
               <item name="CounterStore" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="15_puzzle_mobx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="15_puzzle_mobx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="stores" type="462c0819:PsiDirectoryNode" />
+              <item name="GameStore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="15_puzzle_mobx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="15_puzzle_mobx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="stores" type="462c0819:PsiDirectoryNode" />
+              <item name="TimerStore" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -188,12 +235,16 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="C:\Users\oliva\WebstormProjects\15_puzzle_mobx\node_modules\eslint" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\oliva\WebstormProjects\15_puzzle_mobx\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oliva\WebstormProjects\15_puzzle_mobx\src\stores" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\oliva\WebstormProjects\15_puzzle_mobx\src" />
     </key>
@@ -210,40 +261,140 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
+  <component name="RunManager" selected="Jest.GameStore.при инициализации.и пустом значении в localStorage,.tiles - перемешанный массив черепков">
+    <configuration name="GameStore.при инициализации.и пустом значении в localStorage,.tiles - перемешанный массив черепков" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
       <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/stores/GameStore/GameStore.test.ts" />
+      <test-names>
+        <test-name value="GameStore" />
+        <test-name value="при инициализации" />
+        <test-name value="и пустом значении в localStorage," />
+        <test-name value="tiles - перемешанный массив черепков" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="HoleModel" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/stores/GameStore/HoleModel.test.ts" />
+      <test-names>
+        <test-name value="HoleModel" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="TileModel.при инициализации.move have been called" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/stores/GameStore/TileModel.test.ts" />
+      <test-names>
+        <test-name value="TileModel" />
+        <test-name value="при инициализации" />
+        <test-name value="move have been called" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="TimerStore.при инициализации.и непустом значении в localStorage, time = localStorage.time" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/stores/TimerStore/TimerStore.test.ts" />
+      <test-names>
+        <test-name value="TimerStore" />
+        <test-name value="при инициализации" />
+        <test-name value="и непустом значении в localStorage, time = localStorage.time" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="TimerStore.при инициализации.и непустом значении в localStorage, таймер автоматически продолжается" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/stores/TimerStore/TimerStore.test.ts" />
+      <test-names>
+        <test-name value="TimerStore" />
+        <test-name value="при инициализации" />
+        <test-name value="и непустом значении в localStorage, таймер автоматически продолжается" />
+      </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
+        <item itemvalue="Jest.GameStore.при инициализации.и пустом значении в localStorage,.tiles - перемешанный массив черепков" />
+        <item itemvalue="Jest.TimerStore.при инициализации.и непустом значении в localStorage, time = localStorage.time" />
+        <item itemvalue="Jest.TileModel.при инициализации.move have been called" />
+        <item itemvalue="Jest.TimerStore.при инициализации.и непустом значении в localStorage, таймер автоматически продолжается" />
+        <item itemvalue="Jest.HoleModel" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TileModel_при_инициализации_move_have_been_called - 2019.02.25 at 22h 14m 44s.xml">
+      <configuration name="TileModel.при инициализации.move have been called" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="TileModel_при_инициализации_move_have_been_called - 2019.02.25 at 22h 15m 31s.xml">
+      <configuration name="TileModel.при инициализации.move have been called" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="TileModel_при_инициализации_move_have_been_called - 2019.02.25 at 22h 16m 26s.xml">
+      <configuration name="TileModel.при инициализации.move have been called" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="TimerStore_при_инициализации_и_непустом_значении_в_localStorage,_таймер_автоматически_продолжается - 2019.02.25 at 22h 19m 27s.xml">
+      <configuration name="TimerStore.при инициализации.и непустом значении в localStorage, таймер автоматически продолжается" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="TimerStore_при_инициализации_и_непустом_значении_в_localStorage,_таймер_автоматически_продолжается - 2019.02.25 at 22h 25m 53s.xml">
+      <configuration name="TimerStore.при инициализации.и непустом значении в localStorage, таймер автоматически продолжается" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="TileModel_при_инициализации_move_have_been_called - 2019.02.25 at 22h 27m 10s.xml">
+      <configuration name="TileModel.при инициализации.move have been called" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="TimerStore_при_инициализации_и_непустом_значении_в_localStorage,_time_=_localStorage_time - 2019.02.26 at 01h 31m 36s.xml">
+      <configuration name="TimerStore.при инициализации.и непустом значении в localStorage, time = localStorage.time" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="GameStore_при_инициализации_и_пустом_значении_в_localStorage,_tiles_-_перемешанный_массив_черепков - 2019.02.26 at 01h 45m 42s.xml">
+      <configuration name="GameStore.при инициализации.и пустом значении в localStorage,.tiles - перемешанный массив черепков" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="GameStore_при_инициализации_и_пустом_значении_в_localStorage,_tiles_-_перемешанный_массив_черепков - 2019.02.26 at 01h 46m 52s.xml">
+      <configuration name="GameStore.при инициализации.и пустом значении в localStorage,.tiles - перемешанный массив черепков" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="GameStore_при_инициализации_и_пустом_значении_в_localStorage,_tiles_-_перемешанный_массив_черепков - 2019.02.26 at 01h 48m 38s.xml">
+      <configuration name="GameStore.при инициализации.и пустом значении в localStorage,.tiles - перемешанный массив черепков" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1608" y="-7" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49896482" weight="0.24968314" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896482" visible="true" weight="0.14068441" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5010352" side_tool="true" weight="0.24968314" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32916668" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32916668" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23472223" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
-      <window_info anchor="bottom" id="TypeScript" order="8" />
+      <window_info anchor="bottom" id="TypeScript" order="8" weight="0.32916668" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -307,34 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/HoleModel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="1338" column="4" selection-start-line="1338" selection-start-column="4" selection-end-line="1338" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/helpers.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-            <element signature="e#181#368#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Tile/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-221">
@@ -345,94 +468,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/stores/index.ts" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/ModalStore/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
           <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/TileModel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/TimerStore/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/CounterStore/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/RootStore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="44" column="25" lean-forward="true" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/interface.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/Stack.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -446,22 +486,246 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/index.ts">
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="1065" column="4" selection-start-line="1065" selection-start-column="4" selection-end-line="1065" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/CounterStore/CounterStore.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="48" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/Stack.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="96" column="49" lean-forward="true" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mobx/lib/api/action.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/HoleModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/TileModel.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/HoleModel.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="25" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/ModalStore/ModalStore.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/ModalStore/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/jest/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10591">
+          <caret line="644" column="17" selection-start-line="644" selection-start-column="8" selection-end-line="644" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/TimerStore/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/CounterStore/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/TimerStore/TimerStore.test.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
-          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
           <folding>
-            <element signature="e#1181#2312#0" />
-            <element signature="e#3362#3558#0" />
-            <element signature="e#3595#3845#0" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/GameStore.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="111" column="22" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Tile/Tile.test.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/RootStore.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/AbstractTileModel.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/TileModel.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/helpers.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#92#0" expanded="true" />
+            <element signature="e#455#1306#0" />
+            <element signature="e#1456#2307#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/Stack.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/helpers.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+            <element signature="e#856#1700#0" />
+            <element signature="e#1755#1886#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/GameStore/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/RootStore.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/interface.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
+        <state relative-caret-position="119">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
         </state>
       </provider>
     </entry>

@@ -1,4 +1,4 @@
-import {IModalStore, IRootStore} from '../GameStore/interface';
+import {IModalStore, IRootStore} from '../interface';
 import {action, observable} from 'mobx';
 
 export default

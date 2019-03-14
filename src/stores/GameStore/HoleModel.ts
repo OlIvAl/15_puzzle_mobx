@@ -1,5 +1,5 @@
 import AbstractTileModel from './AbstractTileModel';
-import {IGameStore} from './interface';
+import {IGameStore} from '../interface';
 
 export default
 class HoleModel extends AbstractTileModel {

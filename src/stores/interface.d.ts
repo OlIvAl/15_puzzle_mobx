@@ -6,6 +6,7 @@ export interface IStack<T> {
   peek: () => T;
   isEmpty: () => boolean;
   clear: () => void;
+  toArray: () => T[];
 }
 
 export interface ISerializeTile {
@@ -17,6 +18,8 @@ export interface ISerializeTile {
 export interface ISavedState extends Pick<ICounterStore, 'counter'>, Pick<ITimerStore, 'time'>{
   tiles: ISerializeTile[];
   hole: ISerializeTile;
+  previousTiles: ISerializeTile[][];
+  previousHole: ISerializeTile[];
 }
 
 export interface IRootStore {
@@ -25,7 +28,10 @@ export interface IRootStore {
   timerStore: ITimerStore;
   modalStore: IModalStore;
 
+  initNewGame: () => void;
+  startGame: () => void;
   saveGame: () => void;
+  winGame: () => void;
 }
 
 export interface IAbstractTileModel {
@@ -63,7 +69,7 @@ export interface IGameStore {
 
   move: (tile: ITileModel) => void;
   keypressMove: (code: string) => void;
-  initNewGame: () => void;
+  initNewGame: (serializeTiles: ISerializeTile[], serializeHole: ISerializeTile) => void;
   undo: () => void;
 }
 

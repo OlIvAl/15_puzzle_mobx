@@ -5,7 +5,7 @@ import App from './App';
 import * as mobx from 'mobx';
 import { Provider } from 'mobx-react';
 import RootStore from './stores/RootStore';
-import {IRootStore} from './stores/GameStore/interface';
+import {IRootStore} from './stores/interface';
 
 mobx.configure({ enforceActions: 'observed' });
 
@@ -24,5 +24,6 @@ ReactDOM.render(
   >
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
+  rootStore.startGame
 );

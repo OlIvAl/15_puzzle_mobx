@@ -1,8 +1,11 @@
-import {IHoleModel, ITileModel} from './interface';
+import {IGameStore, IHoleModel, ISavedState, ISerializeTile, ITileModel} from '../interface';
 import {BOARD_TILE_SIZE} from '../../constants/config';
+import TileModel from './TileModel';
+import HoleModel from './HoleModel';
 
 export default
 class StoreHelpers {
+  // ToDo: make clear version
   static shuffleArr<T>(a: T[]): T[] {
     for (let i: number = a.length - 1; i > 0; i--) {
       const randI: number = Math.floor(Math.random() * (i + 1));
@@ -46,5 +49,44 @@ class StoreHelpers {
     return tiles.every(({title, row, col}: ITileModel): boolean => (
       (col + 1 + BOARD_TILE_SIZE * row) === title
     ))
+  }
+
+  static generateShuffleSerializeTilesSet(): Pick<ISavedState, 'tiles' | 'hole'> {
+    return StoreHelpers.shuffleArr<number>(
+      Array(BOARD_TILE_SIZE ** 2)
+        .fill(undefined)
+        .map((_, index: number): number => (index))
+      )
+      .reduce<Pick<ISavedState, 'tiles' | 'hole'>>(
+        (
+          accumulator: Pick<ISavedState, 'tiles' | 'hole'>,
+          currentValue: number,
+          index: number
+        ): Pick<ISavedState, 'tiles' | 'hole'> => {
+          if (currentValue) {
+            return {
+              ...accumulator,
+              tiles: accumulator.tiles.concat({
+                title: currentValue,
+                row: Math.floor(index / BOARD_TILE_SIZE),
+                col: index % BOARD_TILE_SIZE,
+              })
+            };
+          } else {
+            return {
+              ...accumulator,
+              hole: {
+                title: 0,
+                row: Math.floor(index / BOARD_TILE_SIZE),
+                col: index % BOARD_TILE_SIZE
+              }
+            };
+          }
+        },
+        {
+          tiles: [],
+          hole: { title: 0, row: BOARD_TILE_SIZE - 1, col: BOARD_TILE_SIZE - 1}
+        }
+      );
   }
 }

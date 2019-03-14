@@ -1,4 +1,4 @@
-import {IAbstractTileModel, IGameStore} from './interface';
+import {IAbstractTileModel, IGameStore} from '../interface';
 import {action, observable} from 'mobx';
 import {TILE_MARGIN, TILE_SIZE} from '../../constants/config';
 
